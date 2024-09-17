@@ -1,0 +1,65 @@
+﻿<Window x:Class="СalculationSpentCartridges.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:СalculationSpentCartridges"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="280" Width="280" WindowStartupLocation="CenterScreen">
+    <Grid Background="DimGray">
+        <Grid.Resources>
+            <Style x:Key="StackPantlStyle" TargetType="StackPanel">
+                <Setter Property="Margin" Value="0,0,0,2"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+            </Style>
+            <Style x:Key="TextBoxStyle" TargetType="TextBox">
+                <Setter Property="Width" Value="55"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Style="{StaticResource StackPantlStyle}" Background="AliceBlue" >
+            <Label  Content="Количество стреляющих" />
+            <TextBox Name="NumberOfSoldiers" Style="{StaticResource TextBoxStyle}" Margin="50,0,0,0"
+                     Background="AliceBlue" TextChanged="UpdateTextBlock" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Style="{StaticResource StackPantlStyle}" Background="Beige">
+            <Label Content="Патроны на упражнение" />
+            <TextBox Name="PatronPerExercise" Style="{StaticResource TextBoxStyle}" Margin="49,0,0,0"
+                     Background="Beige" TextChanged="UpdateTextBlock" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Style="{StaticResource StackPantlStyle}" Background="Bisque">
+            <Label  Content="Количество утеряных гильз" />
+            <TextBox Name="LostSleeves" Style="{StaticResource TextBoxStyle}" Margin="35,0,0,0" Foreground="Red"
+                     Background="Bisque" />
+        </StackPanel>
+        <StackPanel x:Name="StackPanel" Grid.Row="3" Style="{StaticResource StackPantlStyle}" Background="BurlyWood" >
+            <Label  Content="Количество выданных патронов" />
+            <TextBlock Name="TotalIssued" Width="55" Margin="7.5,0,0,0" Padding="5" FontSize="14" Background="BurlyWood" />
+        </StackPanel>
+        <RadioButton x:Name="rdBtn" Checked="rdBtn_Checked" Content="Множественный расчет" Grid.Row="4" Margin="4,0,0,2"/>
+        <StackPanel x:Name="SurnameStackPanel" Grid.Row="5" Orientation="Vertical" Background="Transparent">
+            <Label Content="Фамилия" Height="20" Padding="5,0,0,5" Margin="18,0,0,0"/>
+            <TextBox x:Name="SurnameTextBox" Margin="24,0,140,2" Background="Tan" BorderBrush="Black" BorderThickness="2"
+                     FontSize="14"/>
+        </StackPanel>
+        <Border Grid.Row="6" Margin="20,15,20,5">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="5" />
+            </Border.Effect>
+            <Button  Content="Рассчитать" Click="Button_Click" FontSize="14" BorderBrush="Beige" Background="Red"
+                    Padding="0,0,0,3"/>
+        </Border>
+    </Grid>
+</Window>
